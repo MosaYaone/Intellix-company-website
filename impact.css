@@ -1,0 +1,431 @@
+/* ===============================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+    --bg-primary: #0b0f14;
+    --bg-secondary: #111827;
+    --accent: #00e0ff;
+    --accent-soft: rgba(0, 224, 255, 0.15);
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, var(--bg-primary), #020617);
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================ */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--text-secondary);
+    max-width: 900px;
+}
+
+/* ===============================
+    HEADER & NAV (Updated)
+================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 15, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 2rem; /* Thinner padding for a modern look */
+    
+    /* This aligns H1 and Nav on one line */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    animation: slideDown 0.8s ease forwards;
+}
+
+header h1 {
+    color: var(--accent);
+    font-size: 1.5rem; /* Slightly smaller to fit the bar better */
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* Square-pill look */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* Remove the dot/underline to keep the header height consistent */
+nav a::after {
+    display: none;
+}
+
+/* Ensure responsiveness keeps them on one line unless very small */
+@media (max-width: 600px) {
+    header {
+        padding: 0.75rem 1rem;
+    }
+    header h1 {
+        font-size: 1.2rem;
+    }
+    nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+/* ===============================
+   SECTIONS
+================================ */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    animation: fadeUp 1s ease both;
+}
+
+section:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   INTELLIX IMPACT: ARCHITECTURAL BRUTALISM & NEON FLOW
+   ============================================================ */
+
+:root {
+    --bg-dark: #05070a;
+    --accent-blue: #00e0ff;
+    --accent-glow: rgba(0, 224, 255, 0.3);
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+.impact-page {
+    background-color: var(--bg-dark);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 1. HERO: DYNAMIC DEPTH */
+.impact-hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 100px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: var(--accent-blue);
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.impact-hero h1 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 30px;
+}
+
+.impact-lead {
+    font-size: 1.25rem;
+    max-width: 600px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* Moving Background Orb */
+.hero-visual {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.glow-orb {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    filter: blur(60px);
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-10%, 10%) scale(1.2); }
+}
+
+/* 2. PILLAR GRID: THE MONOLITHS */
+.impact-grid {
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.pillar-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.pillar-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 60px 40px;
+    position: relative;
+    transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.pillar-card:hover {
+    border-color: var(--accent-blue);
+    background: rgba(0, 224, 255, 0.02);
+    transform: translateY(-10px);
+}
+
+.pillar-icon {
+    font-family: 'Courier New', monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.pillar-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    padding-right: 40px;
+}
+
+.impact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.impact-list li {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    padding-left: 20px;
+    position: relative;
+}
+
+.impact-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue);
+}
+
+/* 3. OUTRO: THE MANIFESTO */
+.impact-outro {
+    padding: 150px 0;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--bg-dark), #000);
+}
+
+.manifesto-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    border-top: 1px solid var(--accent-blue);
+    position: relative;
+}
+
+.manifesto-box p {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.signature {
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* Glitch Effect for Hero Title */
+.glitch-text {
+    position: relative;
+    color: var(--accent-blue);
+}
+
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 20px, 0); }
+    20% { clip: rect(80px, 9999px, 90px, 0); }
+    100% { clip: rect(40px, 9999px, 50px, 0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .impact-hero { height: auto; padding: 120px 0 60px; }
+    .pillar-card { padding: 40px 20px; }
+    .manifesto-box { padding: 40px 20px; }
+}
+
+/* ===============================
+   MODERN FOOTER STYLING
+================================ */
+footer.site-footer {
+    background: #05070a; /* Slightly darker than body for grounding */
+    padding: 50px;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+/* Subtle accent glow at the top of the footer */
+footer.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Brand Section */
+.footer-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+/* Contact Section */
+.footer-contact p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact strong {
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem;
+    color: rgba(156, 163, 175, 0.5); /* Faded secondary text */
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .footer-tagline {
+        max-width: 100%;
+    }
+}

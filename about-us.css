@@ -1,0 +1,226 @@
+/* ===============================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+    --bg-primary: #0b0f14;
+    --bg-secondary: #111827;
+    --accent: #00e0ff;
+    --accent-soft: rgba(0, 224, 255, 0.15);
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background-color: var(--bg-primary);
+    background: linear-gradient(180deg, var(--bg-primary), #020617);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================ */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 { font-size: 2.6rem; }
+h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+p {
+    color: var(--text-secondary);
+    max-width: 900px;
+}
+
+/* ===============================
+   HEADER & NAV
+================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 15, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* ===============================
+   SECTION WRAPPERS (The Fix)
+================================ */
+section {
+    position: relative;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    /* Ensure visibility is 1 so items show up immediately */
+    opacity: 1; 
+}
+
+/* ===============================
+   INTELLIX BRANDED ABOUT SECTION
+================================ */
+#about {
+    background-image: radial-gradient(circle at 2px 2px, var(--border-color) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.container {
+    width: 100%;
+}
+
+.badge {
+    display: inline-block;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-soft);
+    padding: 6px 16px;
+    border-radius: 4px;
+    background: var(--accent-soft);
+    margin-bottom: 1rem;
+}
+
+.text-glow {
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent-soft);
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+}
+
+/* Founder Journey Card */
+.founder-card {
+    display: flex;
+    gap: 40px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 24px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.founder-visual {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.founder-blob {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, var(--accent), #0077ff);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morphing 10s ease-in-out infinite;
+}
+
+.award-tag {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-weight: bold;
+    font-size: 0.65rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transform: rotate(5deg);
+}
+
+.founder-text h3 { color: var(--accent); }
+
+.credentials {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.credentials span {
+    font-size: 0.75rem;
+    background: rgba(255,255,255,0.05);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+/* Vision/Mission Grid */
+.purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.purpose-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer.site-footer {
+    background: #05070a;
+    padding: 80px 20px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+

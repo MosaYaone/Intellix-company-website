@@ -1,0 +1,397 @@
+/* ===============================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+    --bg-primary: #0b0f14;
+    --bg-secondary: #111827;
+    --accent: #00e0ff;
+    --accent-soft: rgba(0, 224, 255, 0.15);
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, var(--bg-primary), #020617);
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================ */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--text-secondary);
+    max-width: 900px;
+}
+
+/* ===============================
+    HEADER & NAV (Updated)
+================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 15, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 2rem; /* Thinner padding for a modern look */
+    
+    /* This aligns H1 and Nav on one line */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    animation: slideDown 0.8s ease forwards;
+}
+
+header h1 {
+    color: var(--accent);
+    font-size: 1.5rem; /* Slightly smaller to fit the bar better */
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* Square-pill look */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* Remove the dot/underline to keep the header height consistent */
+nav a::after {
+    display: none;
+}
+
+/* Ensure responsiveness keeps them on one line unless very small */
+@media (max-width: 600px) {
+    header {
+        padding: 0.75rem 1rem;
+    }
+    header h1 {
+        font-size: 1.2rem;
+    }
+    nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+/* ===============================
+   SECTIONS
+================================ */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    animation: fadeUp 1s ease both;
+}
+
+section:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   INTELLIX PRODUCTS: ULTRA-CREATIVE TACTICAL INTERFACE
+   ============================================================ */
+
+/* 1. LAYERED BACKGROUND (Circuit + Grid) */
+.products-page {
+    position: relative;
+    background-color: var(--bg-primary);
+    /* Dual-layer background: a fine grid and a larger glowing radial */
+    background-image: 
+        radial-gradient(var(--accent-soft) 1px, transparent 1px),
+        linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    background-size: 40px 40px, 200px 200px, 200px 200px;
+}
+
+/* 2. HERO: KINETIC TYPOGRAPHY */
+.product-hero {
+    padding: 180px 0 100px;
+    perspective: 1000px;
+}
+
+.product-hero h1 {
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    /* Masking effect to make it look "etched" */
+    -webkit-text-stroke: 1px var(--accent);
+    color: transparent;
+    background: linear-gradient(var(--accent) 50%, var(--text-primary) 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px var(--accent-soft));
+}
+
+/* 3. SCHEMATIC CARDS: HEXAGONAL-TECH STYLE */
+.blueprint-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.blueprint-card {
+    background: rgba(17, 24, 39, 0.4); /* Glass base */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    padding: 50px 40px;
+    position: relative;
+    /* Angled industrial cuts at top-right and bottom-left */
+    clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 15% 100%, 0 85%);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.blueprint-card:hover {
+    background: rgba(0, 224, 255, 0.03);
+    border-color: var(--accent);
+    transform: rotateX(5deg) rotateY(-5deg) translateY(-10px);
+    box-shadow: 
+        -10px 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px var(--accent-soft);
+}
+
+/* Animated Corner Decals */
+.blueprint-card::before {
+    content: "SYSTEM_ACTIVE";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-family: monospace;
+    font-size: 8px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    opacity: 0.3;
+}
+
+/* The "Power-On" Glow Line */
+.blueprint-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border: 2px solid var(--accent);
+    clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 15% 100%, 0 85%);
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.blueprint-card:hover::after {
+    opacity: 1;
+    animation: borderPulse 2s infinite alternate;
+}
+
+@keyframes borderPulse {
+    0% { filter: brightness(1) blur(0px); }
+    100% { filter: brightness(1.5) blur(2px); }
+}
+
+/* 4. OTMP: DATA STREAMING EFFECT */
+.glass-display {
+    border-radius: 0px; /* Sharp industrial look */
+    border: 1px solid var(--border-color);
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 224, 255, 0.03) 0px,
+        rgba(0, 224, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    padding: 100px 40px;
+}
+
+.feature-pills span {
+    border-radius: 0;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent);
+    padding: 12px 25px;
+    font-weight: bold;
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--accent);
+}
+
+/* 5. METRICS: GLITCH COUNTERS */
+.metric-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+/* Pseudo-shadow for glitch effect */
+.metric-value::before {
+    content: attr(data-value);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+    0% { clip: rect(10px, 9999px, 20px, 0); }
+    20% { clip: rect(80px, 9999px, 90px, 0); }
+    40% { clip: rect(30px, 9999px, 40px, 0); }
+    100% { clip: rect(60px, 9999px, 70px, 0); }
+}
+
+/* 6. RESPONSIVE HUD ADAPTATION */
+@media (max-width: 768px) {
+    .blueprint-card {
+        clip-path: none;
+        border-radius: 20px;
+    }
+    .product-hero h1 {
+        -webkit-text-fill-color: var(--accent);
+    }
+}
+/* ===============================
+   MODERN FOOTER STYLING
+================================ */
+footer.site-footer {
+    background: #05070a; /* Slightly darker than body for grounding */
+    padding: 50px;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+/* Subtle accent glow at the top of the footer */
+footer.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Brand Section */
+.footer-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+/* Contact Section */
+.footer-contact p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact strong {
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem;
+    color: rgba(156, 163, 175, 0.5); /* Faded secondary text */
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .footer-tagline {
+        max-width: 100%;
+    }
+}

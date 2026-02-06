@@ -1,0 +1,301 @@
+/* ===============================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+    --bg-primary: #0b0f14;
+    --bg-secondary: #111827;
+    --accent: #00e0ff;
+    --accent-soft: rgba(0, 224, 255, 0.15);
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background-color: var(--bg-primary);
+    background: linear-gradient(180deg, var(--bg-primary), #020617);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================ */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+h1 { font-size: 2.6rem; }
+h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+p {
+    color: var(--text-secondary);
+    max-width: 900px;
+}
+
+/* ===============================
+   HEADER & NAV
+================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 15, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* ===============================
+   SECTION WRAPPERS (The Fix)
+================================ */
+section {
+    position: relative;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    /* Ensure visibility is 1 so items show up immediately */
+    opacity: 1; 
+}
+
+/* ============================================================
+   INTELLIX MARKET: STRATEGIC DATA VISUALIZATION STYLE
+   ============================================================ */
+
+:root {
+    --bg-primary: #0b0f14;
+    --bg-secondary: #111827;
+    --accent: #00e0ff;
+    --accent-soft: rgba(0, 224, 255, 0.15);
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+.market-page {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    /* World Map Dot Background */
+    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* 1. HERO SPLIT */
+.market-hero {
+    padding: 150px 0 100px;
+}
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.market-tag {
+    color: var(--accent);
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.accent-text {
+    color: var(--accent);
+    text-shadow: 0 0 30px var(--accent-soft);
+}
+
+/* 2. CSS DATA BARS */
+.hero-stats {
+    background: var(--bg-secondary);
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.stat-bar-container {
+    margin-bottom: 30px;
+}
+
+.bar-label {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+.bar-track {
+    height: 6px;
+    background: var(--border-color);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0; /* Start at 0 for animation */
+    animation: fillBar 2s forwards cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: 0 0 15px var(--accent-soft);
+}
+
+@keyframes fillBar {
+    to { width: var(--fill); }
+}
+
+.bar-value {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* 3. SEGMENT BOXES */
+.display-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.segment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px; /* The "Grid Line" style */
+    background: var(--border-color);
+}
+
+.segment-box {
+    background: var(--bg-primary);
+    padding: 60px 40px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.segment-box:hover {
+    background: var(--bg-secondary);
+}
+
+.segment-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+
+/* 4. POSITIONING CARD */
+.positioning-card {
+    margin: 100px 0;
+    background: var(--accent);
+    color: #000;
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.pos-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.pos-content .accent-text {
+    color: #fff; /* White on blue bg */
+}
+
+.pos-visual {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-content: center;
+}
+
+.advantage-pill {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero-split, .segment-grid, .positioning-card {
+        grid-template-columns: 1fr;
+    }
+    .hero-text h1 { font-size: 3rem; }
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer.site-footer {
+    background: #05070a;
+    padding: 80px 20px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
